@@ -1,83 +1,86 @@
-# Proyecto: Protección de Rutas (Educativo)
+# 🍔 Food Store
 
-## ✍️ Descripción
-
-Este es un proyecto de demostración creado con fines educativos para ilustrar un mecanismo básico de protección de rutas en el lado del cliente (frontend) utilizando **Vite** y **TypeScript**.
-
-El objetivo es mostrar cómo se puede restringir el acceso a ciertas páginas según el rol de un usuario (por ejemplo, `ADMIN` o `CLIENT`).
+Aplicación frontend de una tienda de comida desarrollada con HTML, CSS, TypeScript y Vite. Esta aplicacion permite registrarse, iniciar sesión y explorar un catálogo de productos con carrito de compras persistente.
 
 ---
 
-## ⚠️ ¡Importante! Nivel de Seguridad
+## ✨ Funcionalidades
 
-La protección de rutas implementada en este proyecto **NO ES SEGURA** y no debe utilizarse en un entorno de producción.
-
-- **Razón**: La lógica de autenticación se basa en datos guardados en `localStorage` en el navegador del usuario.
-- **Riesgo**: Cualquier usuario con conocimientos técnicos básicos puede abrir las herramientas de desarrollador del navegador para inspeccionar, modificar o eliminar los datos de `localStorage`, obteniendo así acceso no autorizado a rutas protegidas.
-
-Este enfoque es útil únicamente para fines de aprendizaje y para prototipos de bajo riesgo. La seguridad real debe implementarse en el **backend**.
+- Registro e inicio de sesión con persistencia en `localStorage`
+- Rutas protegidas según el rol del usuario
+- Catálogo de productos con búsqueda por nombre y filtrado por categoría
+- Carrito de compras: agregar, modificar cantidad, eliminar y ver el total
+- Diseño responsive
 
 ---
 
-## 🚀 Instalación y Uso
+## 🛠️ Tecnologías
 
-Se recomienda usar `pnpm` como gestor de paquetes para mayor eficiencia en el manejo de dependencias.
+- HTML5
+- CSS3
+- TypeScript
+- Vite
 
-### 1. Instalar pnpm
+---
 
-Si no tienes `pnpm` instalado, puedes hacerlo fácilmente a través de `npm` (que viene con Node.js) ejecutando el siguiente comando en tu terminal:
+## ▶️ Cómo ejecutarlo
+
+### 1. Clonar el repositorio
 
 ```bash
-npm install -g pnpm
+git clone <url-del-repositorio>
+cd proteger_rutas
 ```
 
-### 2. Instalar Dependencias del Proyecto
-
-Una vez en la carpeta raíz del proyecto, instala las dependencias necesarias con `pnpm`:
+### 2. Instalar dependencias
 
 ```bash
 pnpm install
 ```
 
-### 3. Ejecutar el Proyecto
+> Si no tenés pnpm instalado: `npm install -g pnpm`
 
-Para iniciar el servidor de desarrollo de Vite, ejecuta:
+### 3. Iniciar el servidor de desarrollo
 
 ```bash
 pnpm dev
 ```
 
-La aplicación estará disponible en la URL que aparezca en la terminal (generalmente `http://localhost:5173`).
+La app estará disponible en `http://localhost:5173`
 
 ---
 
-## ⚙️ ¿Cómo Funciona la Protección de Rutas?
+## 📁 Estructura del proyecto
 
-El mecanismo es simple y se gestiona desde el código TypeScript en la carpeta `src/utils`:
-
-1.  **Inicio de Sesión**: Cuando un usuario se "loguea", su información (incluido su rol) se guarda como un string JSON en `localStorage`.
-2.  **Carga de Página Protegida**: Cada vez que se intenta cargar una página protegida (ej. la página de Administrador), se ejecuta un script de verificación (`checkAuhtUser` en `src/utils/auth.ts`).
-3.  **Verificación**: El script comprueba:
-    - Si existe un usuario en `localStorage`. Si no, redirige al login.
-    - Si el rol del usuario guardado coincide con el rol requerido para acceder a esa página. Si no coincide, lo redirige a una página de acceso denegado o a su "home" correspondiente.
-4.  **Cierre de Sesión (Logout)**: Al cerrar sesión, la información del usuario se elimina de `localStorage`.
+```
+src/
+├── pages/
+│   ├── auth/
+│   │   ├── login/        ← Inicio de sesión
+│   │   └── registro/     ← Registro de usuario
+│   ├── client/home/      ← Página base del cliente
+│   ├── admin/home/       ← Página base del admin
+│   └── store/
+│       ├── home/         ← Catálogo de productos
+│       └── cart/         ← Carrito de compras
+├── data/
+│   └── data.ts           ← Productos y categorías
+├── types/
+│   ├── product.ts        ← Interfaces Product y CartItem
+│   ├── categoria.ts      ← Interface Icategoria
+│   └── IUser.ts          ← Interface de usuario
+└── utils/
+    ├── auth.ts           ← Lógica de autenticación
+    ├── localStorage.ts   ← Helpers de localStorage
+    └── navigate.ts       ← Navegación
+```
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🚀 Cómo probar la app
 
-```
-/
-├── src/
-│   ├── pages/                # Contiene las páginas de la aplicación
-│   │   ├── admin/            # Páginas solo para administradores
-│   │   ├── auth/             # Páginas de autenticación (login, registro)
-│   │   └── client/           # Páginas solo para clientes
-│   ├── types/                # Define las interfaces y tipos (IUser, Rol)
-│   └── utils/                # Lógica reutilizable
-│       ├── auth.ts           # Función principal de verificación de rol y sesión
-│       ├── localStorage.ts   # Funciones para leer/escribir en localStorage
-│       └── navigate.ts       # Función para redirigir al usuario
-├── package.json              # Dependencias y scripts
-└── README.md                 # Este archivo
-```
+1. Ir a `http://localhost:5173`
+2. Registrarse con email y contraseña
+3. Iniciar sesión — redirige al catálogo automáticamente
+4. Explorar productos, usar el buscador y los filtros de categoría
+5. Agregar productos al carrito y ver el total
