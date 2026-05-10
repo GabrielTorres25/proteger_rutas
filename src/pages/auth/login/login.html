@@ -1,31 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Store - Login</title>
+  <link rel="stylesheet" href="./login.css" />
 </head>
 
 <body>
-    <h1> Login</h1>
+  <div class="page">
 
-    <form id="form">
+    <!-- lado izquierdo  -->
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="off" placeholder="example@example.com">
-        </div>
-        <div>
-            <label for="password">password</label>
-            <input type="password" id="password" name="password" autocomplete="off" placeholder="********">
-        </div>
+    <div class="brand-panel">
+      <div class="brand-panel__content">
+        <div class="brand-panel__logo">🍔</div>
+        <h1 class="brand-panel__title">Food Store</h1>
+        <p class="brand-panel__subtitle">Los mejores sabores, a un click de distancia.</p>
+      </div>
+    </div>
 
-        <button type="submit">Ingresar</button>
-        <a href="../registro/registro.html">Registrarse</a>
-    </form>
+    <!-- formulario -->
 
-    <script type="module" src="./login.ts"></script>
+    <div class="form-panel">
+      <div class="form-card">
+        <h2 class="form-card__title">Bienvenido 👋</h2>
+        <p class="form-card__subtitle">Ingresa con tu cuenta para continuar</p>
+
+        <form id="form" class="form">
+          <div class="form__group">
+            <label for="email" class="form__label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="off"
+              placeholder="ejemplo@correo.com"
+              class="form__input"
+            />
+          </div>
+
+          <div class="form__group">
+            <label for="password" class="form__label">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="off"
+              placeholder="••••••••"
+              class="form__input"
+            />
+          </div>
+
+          <button type="submit" class="btn btn--primary">Ingresar</button>
+          <a href="
+        </form>
+
+       <p class="form-card_footer">
+          ¿No tenes cuenta?
+          <a href="../registro/registro.html" class="link">Registrate</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="./login.ts"></script>
 </body>
 
 </html>

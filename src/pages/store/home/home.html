@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Store - Catalogo</title>
+  <link rel="stylesheet" href="./home.css" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="navbar__brand">🍔 Food Store</div>
+    <div class="navbar__actions">
+      <a href="../cart/cart.html" class="btn btn--cart">
+        🛒 Carrito
+        <span id="cartCount" class="cart-badge">0</span>
+      </a>
+      <button id="logoutButton" class="btn btn--logout">Salir</button>
+    </div>
+  </nav>
+
+  
+  <div class="layout">
+
+    <!--sidebar -->
+    <aside class="sidebar">
+      <h2 class="sidebar__title">Categorias</h2>
+      <ul class="category-list" id="categoryList">
+        <li class="category-item category-item--active" data-category="all">Todas</li>
+      </ul>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="main">
+      <div class="main__header">
+        <h1 class="main__title">Nuestro Menu</h1>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-box__input"
+            placeholder="🔍 Buscar producto..."
+          />
+        </div>
+      </div>
+
+      <!-- GRID de productos -->
+      <div class="product-grid" id="productGrid"></div>
+
+      <!-- mensaje cuando no hay resultados -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <p class="empty-state__icon">🍽️</p>
+        <p class="empty-state__text">No se encontraron productos.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- confirmacion cuando si -->
+  <div class="toast" id="toast">✅ Producto agregado al carrito</div>
+
+  <script type="module" src="./home.ts"></script>
+</body>
+
+</html>

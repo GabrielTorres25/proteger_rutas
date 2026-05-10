@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Store - Carrito</title>
+  <link rel="stylesheet" href="./cart.css" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="navbar__brand">🍔 Food Store</div>
+    <div class="navbar__actions">
+      <a href="../home/home.html" class="btn btn--back">← Volver al catalogo</a>
+      <button id="logoutButton" class="btn btn--logout">Salir</button>
+    </div>
+  </nav>
+
+  <!-- carrito -->
+  <div class="cart-layout">
+    <h1 class="cart-title">🛒 Tu Carrito</h1>
+
+    <!-- carrito vacio -->
+    <div class="empty-cart" id="emptyCart" style="display:none;">
+      <p class="empty-cart__icon">🛒</p>
+      <p class="empty-cart__text">Tu carrito esta vacio.</p>
+      <a href="../home/home.html" class="btn btn--primary">Ver productos</a>
+    </div>
+
+    <!-- Lista de items -->
+    <div class="cart-content" id="cartContent">
+      <div class="cart-items" id="cartItems"></div>
+
+      <!-- Resumen -->
+      <div class="cart-summary" id="cartSummary">
+        <h2 class="cart-summary__title">Resumen</h2>
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span id="subtotal">$0</span>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <span>Total</span>
+          <span id="total">$0</span>
+        </div>
+        <button class="btn btn--primary btn--full" id="clearCart">🗑️ Vaciar carrito</button>
+        <button class="btn btn--full btn--disabled" disabled>Finalizar compra</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./cart.ts"></script>
+</body>
+
+</html>

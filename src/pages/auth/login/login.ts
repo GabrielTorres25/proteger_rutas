@@ -26,6 +26,6 @@ form.addEventListener("submit", (e) => {
   if (userFound.role === "admin") {
     navigate("/src/pages/admin/home/home.html");
   } else {
-    navigate("/src/pages/client/home/home.html");
+    navigate("/src/pages/store/home/home.html");
   }
 });
